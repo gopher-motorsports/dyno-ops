@@ -3,51 +3,38 @@
 <html>
 <head>
     <meta charset='utf-8'>
-    <title>Trackside Ops- View Data</title>
+    <title>Dyno- View Data</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="{% static '/css/view_data.css' %}">
     <script src='main.js'></script>
 </head>
 <body>
     <div class="header">
-        <a href="{% url 'home' %}" class="logo">Trackside Ops</a>
+        <a href="{% url 'home' %}" class="logo">Back to Home</a>
     </div>
     <div class="container" align="center">
         <h4>Data entered</h4>
         <table width="75%">
             <tr>
-                <td>Date</td>
-                <td>Drivers</td>
-                <td>Track</td>
-                <td>Weather</td>
-                <td>Personnel</td>
-                <td>Location</td>
-                <td></td>
+                <td>Test Name</td>
+                <td>Test Type</td>
+                <td>Constant</td>
+                <td>Throttle</td>
+                <td>RPM</td>
+                <td>Created At</td>
             </tr>
             {% for entry in entries %}
                 <tr>
-                    <td>{{entry.created_at}}</td>
-                    <td>{{entry.driver}}</td>
-                    <td>{{entry.track}}</td>
-                    <td>{{entry.weather}}</td>
-                    <td>{{entry.personnel}}</td>
-                    <td>{{entry.location}}</td>
-                    <td>
-                        <div class='btns'>
-                            <form action="{%url 'collectdata' %}" method="post">
-                                {% csrf_token %}
-                                <input type ="text" name="entry_id" style="display: none;" value={{entry.id}}>
-                                <input type ="text" name="method" style="display: none;" value="load">
-                                <input type=image class="btn-edit" src="{% static '/images/edit.png' %}">
-                            </form>   
-                            <form action="{%url 'view_data' %}" method="post">
-                                {% csrf_token %}
-                                <input type ="text" name="entry_id" style="display: none;" value={{entry.id}}>
-                                <input type ="text" name="method" style="display: none;" value="delete">
-                                <input type=image class="btn-delete" src="{% static '/images/delete.png' %}">
-                            </form>
-                        </div>                  
-                    </td>
+                    <td>{{entry.name}}</td>
+                    <td>{{entry.test}}</td>
+                    {% if entry.constant %}
+                        <td>Throttle</td>
+                    {% else %}
+                        <td>RPM</td>
+                    {% endif %}
+                    <td>{{entry.throttle}}</td>
+                    <td>{{entry.rpm}}</td>
+                    <td>{{entry.date}}</td>
                 </tr>
             {% endfor %}
         </table>
