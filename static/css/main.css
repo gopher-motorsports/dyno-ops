@@ -265,13 +265,41 @@ form {
 
 #tires{
     width: 50%;
-    margin-top: 40px;
-    height: 30px;
+    height: -50px;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
+
+#const {
+    display: flex;
+    
+}
+
+#constant{
+    position: relative;
+    top: 40px;
+    padding-bottom: 20px;
+}
+
+#type {
+    position: relative;
+    top: -30px;
+    left: -110px;
+    height: 40px;
+    text-align: left;
+    font-size: 18px;
+    width: 30%;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 
 .tires {
     margin-left: 25px;
-    margin-top: 40px;
+    margin-top: 20px;
     width: 125px;
     color: white;
     font-size: 18px;

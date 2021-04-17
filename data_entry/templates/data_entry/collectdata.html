@@ -34,14 +34,27 @@
                         </div>
                         <div id="driver">
                             <h3 class="driver">Type</h3>
-                            <input class="driver-field" type="text" name="type" placeholder="Required" required>
+                            <select name="type" id="type" >
+                                {% for type in types %}
+                                    <option value="{{type.name}}">{{type.name}}</option>
+                                {% endfor %}
+                            </select>
                             <label class="label-driver">Test Type</label>
                         </div>
                         <div id="tires">
-                            <label class="radio_tires" for="used">Throttle</label>
-                            <input type="radio" name="constant" value="0" id="used">
-                            <label class="radio_tires" for="used">RPM</label>
-                            <input type="radio" name="constant" value="1" id="used">
+                            <div id="const">
+                                <h3 class="driver">Constant</h3>
+                        
+                                <div id="constant"> 
+                                    <label id="throttle" class="radio_tires" for="used">Throttle</label>
+                                    <input type="radio" name="constant" value="0" id="used" onclick="changeColor(true)">
+                                </div>
+                                <div id="constant">
+                                    <label id="rpm" class="radio_tires" for="used">RPM</label>
+                                    <input type="radio" name="constant" value="1" id="used" onclick="changeColor(false)">
+                                </div>
+                            </div>
+                            
                         </div>
                         <div id="soft-eng">
                             <h3 class="soft-eng">Throttle</h3>

@@ -11,3 +11,6 @@ class Dyno(models.Model):
     throttle = models.IntegerField()
     rpm = models.IntegerField()
     
+class TestType(models.Model):
+    name = models.CharField(max_length=100)
+    

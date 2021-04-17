@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import datetime
-from .models import Dyno
+from .models import Dyno, TestType
 
 """
     Home Page
@@ -41,7 +41,8 @@ def collectData(request):
         return render(request, 'data_entry/collectdata.html', context)
 
     else:
-        context = {}
+        types = TestType.objects.all()
+        context = {"types" : types}
         return render(request, 'data_entry/collectdata.html', context)
 
 

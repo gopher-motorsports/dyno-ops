@@ -4,3 +4,17 @@ function clicked(event)
         event.preventDefault()
     }
 }
+
+
+function changeColor(value) {
+    if (value) {
+        document.getElementById("throttle").style.color = "grey";
+        document.getElementById("rpm").style.color= "white";
+    }
+
+    else {
+        document.getElementById("rpm").style.color= "grey";
+        document.getElementById("throttle").style.color= "white";
+    }
+    
+}
